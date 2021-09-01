@@ -1,0 +1,37 @@
+import styled from 'styled-components';
+
+
+
+
+export const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    height: 150px;
+    background: var(--background);
+
+    input {
+        margin: 0;
+        height: 3rem;
+        width: 25rem;
+        padding: 1rem;
+        border-radius: 0.25rem;
+        border: 0;
+        
+                
+    }
+
+    button {
+        height: 3rem;
+        padding: 1rem 1rem;
+        background: var(--green);
+        border-radius: 0.25rem;
+        border: 0;        
+        transition: filter 0.2s;
+
+        &:hover {
+            filter: brightness(0.9)
+        }
+    }
+
+`
