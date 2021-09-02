@@ -3,9 +3,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { api } from "../../services/api";
 import { RepositoryItem } from "../RepositoryItem";
-
+import { useSearch } from "../../hooks/useSearch";
 
 interface Repository {
+    id: number;
     name: string;
     avatar_url: string;
     html_url: string;
@@ -16,14 +17,23 @@ interface Repository {
     }
 }
 
-
-
 export function RepositoryList() {
+
+    //'/repositories?q=ignite-reactjs1%20in:name,description&per_page=10'
+
+    const search = useSearch()
     const [repositories, setRepositories] = useState<Repository[]>([]);
+    const [queryString, setQueryString] = useState("");
     
+
     useEffect(()=> {
-        api.get('/repositories?q=ignite-reactjs1%20in:name,description&per_page=10').then(response => setRepositories(response.data.items))
-    }, []);
+        setQueryString("/repositories?q="+ search.argument +"%20in:name,description&per_page=10")
+    },[search.argument])
+
+    useEffect(()=> {
+        api.get(queryString).then(response => setRepositories(response.data.items))
+        
+    }, [queryString]);
 
 
     return (
@@ -31,10 +41,9 @@ export function RepositoryList() {
         <Container>
             {repositories.map(repository => {
                 return (
-                <RepositoryItem key={repository.name} repository={repository}/>
+                <RepositoryItem key={repository.id} repository={repository}/>
             )
             })}
-
         </Container>
     )
 }
