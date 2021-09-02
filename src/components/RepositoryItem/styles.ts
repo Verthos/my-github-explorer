@@ -1,15 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    display: grid;
-    background: var(--background);
-    height: 100%;
-    justify-content: center;
-    
-
-
-`
-
 export const Card = styled.div`
     display: flex;
     width: 30rem;
@@ -39,5 +29,6 @@ export const Card = styled.div`
     img{
         position: relative;
         margin:1rem;
+        border-radius: 1rem;
     }
 `

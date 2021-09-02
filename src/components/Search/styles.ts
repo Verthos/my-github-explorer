@@ -24,7 +24,7 @@ export const Container = styled.div`
     button {
         height: 3rem;
         padding: 1rem 1rem;
-        background: var(--green);
+        background: var(--blue);
         border-radius: 0.25rem;
         border: 0;        
         transition: filter 0.2s;
