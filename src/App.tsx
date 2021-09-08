@@ -1,3 +1,4 @@
+import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { RepositoryList } from './components/RepositoryList';
 import { Search } from './components/Search';
@@ -9,12 +10,12 @@ import { GlobalStyle } from './styles/global';
 
 export function App() {
 
-
-
-
   return (
-    <>  
+    <main> 
+
+
       <Header />
+      
 
       <SearchProvider>
 
@@ -24,8 +25,11 @@ export function App() {
       </SearchProvider>
 
       
+      <Footer/>
+
       <GlobalStyle/>
-    </>
+    
+    </main>
     
   );
 }

@@ -18,17 +18,13 @@ export function SearchProvider({children} : SearchProviderProps) {
 
     function handleNewArgument(input: string){
         setArgument(input)
-          
     }
-
 
     return(
         
         <SearchContext.Provider value={{handleNewArgument, argument}}>
             {children}
         </SearchContext.Provider>
-
-
     )
 
 

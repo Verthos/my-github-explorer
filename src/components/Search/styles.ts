@@ -11,7 +11,7 @@ export const Container = styled.form`
     background: var(--background);
 
     input {
-        margin: 0;
+        margin: 0 0 0 1rem;
         height: 3rem;
         width: 25rem;
         padding: 1rem;
@@ -22,6 +22,7 @@ export const Container = styled.form`
     }
 
     button {
+        margin: 0 0 0 0;
         height: 3rem;
         padding: 1rem 1rem;
         background: var(--blue);

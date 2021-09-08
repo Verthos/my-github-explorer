@@ -10,14 +10,13 @@ export const GlobalStyle = createGlobalStyle`
     --text-title: #363F5F;
     --text-body: #969CB3;
     --shape: #FFFFFF;
-    --green: #04D361
+    --green: #04D361;
+    --soft-black: #0e1111;
 }
 
 * { margin:0;
     padding:0;
     box-sizing: border-box;
-    
-    
     
 }
 
@@ -34,12 +33,16 @@ html {
 
 
 body {
-    background: var(---background);
-    
+    background: var(--background);
     //fontes mais nitidas utilizando engine do chrome
     -webkit-font-smoothing: antialiased;
-
+    
 }
+
+main{
+    min-height: 30rem;
+};
+
 
 body, input, textarea, button {
     font-family: 'Poppins', sans-serif;

@@ -20,7 +20,7 @@ export function RepositoryItem(props: RepositoryItemProps){
     return(
         <Card>
             <img src={props.repository.owner.avatar_url} alt="avatar" />
-            <header>{props.repository.name}</header>
+            <a rel="noreferrer" target="_blank" href={props.repository.html_url}><header>{props.repository.name}</header></a>
             <p>{props.repository.description}</p>
         </Card>
     )

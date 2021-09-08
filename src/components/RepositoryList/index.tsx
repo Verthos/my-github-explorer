@@ -1,4 +1,4 @@
-import {Container} from "./styles";
+import { Container } from "./styles";
 import { useState } from "react";
 import { useEffect } from "react";
 import { api } from "../../services/api";
@@ -31,7 +31,8 @@ export function RepositoryList() {
     },[search.argument])
 
     useEffect(()=> {
-        api.get(queryString).then(response => setRepositories(response.data.items))
+        api.get(queryString)
+        .then(response => setRepositories(response.data.items))
         
     }, [queryString]);
 

@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.main`
+    position: relative;
     display: grid;
-    background: var(--background);
-    height: 100%;
     justify-content: center;
-    
+    max-height: 100%;
 
 
 `
