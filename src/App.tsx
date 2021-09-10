@@ -11,7 +11,7 @@ import { GlobalStyle } from './styles/global';
 export function App() {
 
   return (
-    <main> 
+    <> 
 
 
       <Header />
@@ -29,7 +29,7 @@ export function App() {
 
       <GlobalStyle/>
     
-    </main>
+    </>
     
   );
 }

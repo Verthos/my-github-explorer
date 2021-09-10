@@ -21,7 +21,9 @@ export function RepositoryList() {
 
     //'/repositories?q=ignite-reactjs1%20in:name,description&per_page=10'
 
-    const search = useSearch()
+
+    
+    const search = useSearch();
     const [repositories, setRepositories] = useState<Repository[]>([]);
     const [queryString, setQueryString] = useState("");
     
@@ -33,18 +35,16 @@ export function RepositoryList() {
     useEffect(()=> {
         api.get(queryString)
         .then(response => setRepositories(response.data.items))
-        
+   
     }, [queryString]);
 
 
     return (
 
         <Container>
-            {repositories.map(repository => {
-                return (
-                <RepositoryItem key={repository.id} repository={repository}/>
-            )
-            })}
+            
+            {repositories.map(repository =>  repository.name.includes(search.argument) ? <RepositoryItem key={repository.id} repository={repository}/> : null).sort()}
+                 
         </Container>
     )
 }
