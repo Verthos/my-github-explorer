@@ -10,8 +10,8 @@ interface SearchProviderData{
     usersIsSelected: string;
     repositoriesIsSelected: string;
     handleNewArgument: (argument: string) => void;
-    userButtomIsSelected: (isSelected: string) => void;
-    repositoriesButtomIsSelected: (isSelected: string) => void;
+    handleUserButtomIsSelected: (isSelected: string) => void;
+    handleRepositoriesButtomIsSelected: (isSelected: string) => void;
 
 }
 
@@ -31,7 +31,7 @@ export function SearchProvider({children} : SearchProviderProps) {
         setArgument(argument)
     }
 
-    const userButtomIsSelected = function (usersIsSelected: string){
+    const handleUserButtomIsSelected = function (usersIsSelected: string){
         if(usersIsSelected === "notSelected") {
             setUsersIsSelected("selected")
             setRepositoriesIsSelected("notSelected")
@@ -39,7 +39,7 @@ export function SearchProvider({children} : SearchProviderProps) {
         }else return;
     }
 
-    const repositoriesButtomIsSelected = function (repositoriesIsSelected: string){
+    const handleRepositoriesButtomIsSelected = function (repositoriesIsSelected: string){
         if(repositoriesIsSelected === "notSelected") {
             setRepositoriesIsSelected("selected")
             setUsersIsSelected("notSelected")
@@ -51,7 +51,7 @@ export function SearchProvider({children} : SearchProviderProps) {
 
     return(
         
-        <SearchContext.Provider value={{handleNewArgument, argument, queryType, usersIsSelected, repositoriesIsSelected, userButtomIsSelected, repositoriesButtomIsSelected}}>
+        <SearchContext.Provider value={{handleNewArgument, argument, queryType, usersIsSelected, repositoriesIsSelected, handleUserButtomIsSelected, handleRepositoriesButtomIsSelected}}>
             {children}
         </SearchContext.Provider>
     )

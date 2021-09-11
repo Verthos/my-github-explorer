@@ -6,23 +6,20 @@ import { SearchBar, SwitchButton, Container} from "./styles";
 
 
 export function Search() {
-    
 
     const search = useSearch();
     const [content, setContent] = useState("");
 
-    
-    
 
     return(
             //entender a propriedade Key neste caso
         <Container>
 
             <SwitchButton className={search.usersIsSelected} type="button" 
-            onClick={() => {search.userButtomIsSelected(search.usersIsSelected)} }>Users</SwitchButton>
+            onClick={() => {search.handleUserButtomIsSelected(search.usersIsSelected)} }>Users</SwitchButton>
 
             <SwitchButton className={search.repositoriesIsSelected} type="button" 
-            onClick={() => {search.repositoriesButtomIsSelected(search.repositoriesIsSelected)}}>Repositories</SwitchButton>
+            onClick={() => {search.handleRepositoriesButtomIsSelected(search.repositoriesIsSelected)}}>Repositories</SwitchButton>
             
             <SearchBar key={search.argument}>
                 <input value={content} onChange={event => setContent(event.target.value)} type="text" placeholder="Digite aqui." />
