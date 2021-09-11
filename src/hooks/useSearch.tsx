@@ -4,8 +4,10 @@ interface SearchProviderProps {
     children: ReactNode
 }
 interface SearchProviderData{
+    queryType: string;
     argument: string;
-    handleNewArgument: (input: string) => void
+    handleNewArgument: (argument: string) => void;
+    handleQueryType: (type: string) => void;
 }
 
 
@@ -13,16 +15,22 @@ const SearchContext = createContext<SearchProviderData>({} as SearchProviderData
 
 export function SearchProvider({children} : SearchProviderProps) {
     
-    const [argument, setArgument] = useState("ignite-reactjs1");
+    const [argument, setArgument] = useState("Verthos");
+    const [queryType, setQueryType] = useState("repositories")
+
+    function handleQueryType(type: string){
+        setQueryType(type);
+        console.log(queryType)
+    }
 
 
-    function handleNewArgument(input: string){
-        setArgument(input)
+    function handleNewArgument(argument: string){
+        setArgument(argument)
     }
 
     return(
         
-        <SearchContext.Provider value={{handleNewArgument, argument}}>
+        <SearchContext.Provider value={{handleNewArgument, handleQueryType, argument, queryType}}>
             {children}
         </SearchContext.Provider>
     )
